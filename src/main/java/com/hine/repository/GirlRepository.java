@@ -1,4 +1,4 @@
-package com.hine.dao;
+package com.hine.repository;
 
 import com.hine.entity.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;

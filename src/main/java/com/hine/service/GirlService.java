@@ -1,6 +1,6 @@
 package com.hine.service;
 
-import com.hine.dao.GirlRepository;
+import com.hine.repository.GirlRepository;
 import com.hine.entity.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

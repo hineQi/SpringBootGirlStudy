@@ -1,6 +1,6 @@
 package com.hine.controller;
 
-import com.hine.dao.GirlRepository;
+import com.hine.repository.GirlRepository;
 import com.hine.entity.Girl;
 import com.hine.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
