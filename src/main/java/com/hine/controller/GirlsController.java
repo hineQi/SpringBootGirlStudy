@@ -4,8 +4,11 @@ import com.hine.repository.GirlRepository;
 import com.hine.entity.Girl;
 import com.hine.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -29,6 +32,7 @@ public class GirlsController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList(){
+        System.out.println("girlList girlList girlList girlList girlList");
         return girlRepository.findAll();
     }
 
@@ -38,7 +42,10 @@ public class GirlsController {
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(Girl girl){
+    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+        }
         return girlRepository.save(girl);
     }
 
