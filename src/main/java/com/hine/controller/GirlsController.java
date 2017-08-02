@@ -1,7 +1,7 @@
 package com.hine.controller;
 
-import com.hine.dao.GirlRepository;
 import com.hine.entity.Girl;
+import com.hine.mapper.GirlMapper;
 import com.hine.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ import java.util.List;
 public class GirlsController {
 
     @Autowired
-    private GirlRepository girlRepository;
+    private GirlMapper girlRepository;
 
     @Autowired
     private GirlService girlService;
@@ -48,7 +48,7 @@ public class GirlsController {
      * @return
      */
     @GetMapping(value = "/girls/{id}")
-    public Girl girlFindOne(@PathVariable("id") Integer id){
+    public Girl girlFindOne(@PathVariable("id") Long id){
         return girlRepository.findOne(id);
     }
 
@@ -67,7 +67,7 @@ public class GirlsController {
      * @param id
      */
     @DeleteMapping(value = "/girls/{id}")
-    public void girlDelete(@PathVariable("id") Integer id){
+    public void girlDelete(@PathVariable("id") Long id){
         girlRepository.delete(id);
     }
 

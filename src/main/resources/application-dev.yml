@@ -7,8 +7,6 @@ spring:
     url: jdbc:mysql://172.16.182.7:3306/localtest
     username: root
     password: 123
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
+mybatis:
+  type-aliases-package: com.hine.entity
