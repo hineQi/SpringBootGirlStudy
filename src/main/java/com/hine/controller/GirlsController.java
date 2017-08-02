@@ -1,7 +1,7 @@
 package com.hine.controller;
 
-import com.hine.dao.GirlRepository;
 import com.hine.entity.Girl;
+import com.hine.mapper.GirlMapper;
 import com.hine.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ import java.util.List;
 public class GirlsController {
 
     @Autowired
-    private GirlRepository girlRepository;
+    private GirlMapper girlRepository;
 
     @Autowired
     private GirlService girlService;

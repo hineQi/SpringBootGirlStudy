@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hine.mapper.GirlMapper">
+    <resultMap id="BaseResultMap" type="com.hine.entity.Girl">
+        <id column="id" property="id" jdbcType="DECIMAL"/>
+        <result column="age" property="age" jdbcType="DECIMAL"/>
+        <result column="cup_size" property="cupSize" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, age, cup_size
+    </sql>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from girl
+    </select>
+
+    <select id="findOne" parameterType="Integer" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM girl
+        WHERE id = #{id}
+    </select>
+
+    <insert id="save" parameterType="com.hine.entity.Girl" >
+        INSERT INTO
+        girl
+        (age,cup_size)
+        VALUES
+        (#{age}, #{cupSize})
+    </insert>
+
+    <update id="update" parameterType="com.hine.entity.Girl" >
+        UPDATE
+        girl
+        SET
+        <if test="age != null">age = #{age},</if>
+        <if test="cupSize != null">cup_size = #{cupSize},</if>
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer" >
+        DELETE FROM
+        girl
+        WHERE
+        id =#{id}
+    </delete>
+
+</mapper>

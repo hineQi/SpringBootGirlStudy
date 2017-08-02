@@ -8,5 +8,7 @@ spring:
     username: root
     password: 123
 
-
-
+mybatis:
+  type-aliases-package: com.hine.entity
+  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
