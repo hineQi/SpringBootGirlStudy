@@ -7,4 +7,10 @@
         <typeAlias alias="ArrayList" type="java.util.ArrayList"/>
         <typeAlias alias="LinkedList" type="java.util.LinkedList"/>
     </typeAliases>
+<!--    &lt;!&ndash;允许移动生成的文件 &ndash;&gt;
+    <verbose>true</verbose>
+    &lt;!&ndash; 是否覆盖 &ndash;&gt;
+    <overwrite>true</overwrite>
+    &lt;!&ndash; 自动生成的配置 &ndash;&gt;
+    <configurationFile>src/main/resources/mapper/mybatis-generator.xml</configurationFile>-->
 </configuration>
