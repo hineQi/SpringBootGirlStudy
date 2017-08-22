@@ -39,7 +39,7 @@ public class GirlsController {
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(Girl girl){
+    public int girlAdd(@RequestBody Girl girl){
         return girlRepository.save(girl);
     }
 
@@ -59,7 +59,7 @@ public class GirlsController {
      * @return
      */
     @PutMapping(value = "/girls/{id}")
-    public Girl girlUpdate(Girl girl){
+    public int girlUpdate(Girl girl){
         return girlRepository.save(girl);
     }
 
