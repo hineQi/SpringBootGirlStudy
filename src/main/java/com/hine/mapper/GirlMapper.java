@@ -14,7 +14,7 @@ import java.util.List;
 public interface GirlMapper {
     List<Girl> findAll();
     Girl findOne(Integer id);
-    Girl save(Girl girl);
+    int save(Girl girl);
     void update(Girl girl);
     void delete(Integer id);
     List<Girl> findByAge(Integer age);

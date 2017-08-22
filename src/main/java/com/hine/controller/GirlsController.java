@@ -46,7 +46,7 @@ public class GirlsController {
     @ApiOperation(value = "创建女生", notes = "根据Girl对象创建女生")
     @ApiImplicitParam(name = "girl", value = "女生详细实体girl", required = true, dataType = "Girl")
     @PostMapping(value = "/girls")
-    public Girl girlAdd(Girl girl){
+    public int girlAdd(@RequestBody Girl girl){
         return girlRepository.save(girl);
     }
 
@@ -73,7 +73,7 @@ public class GirlsController {
             @ApiImplicitParam(name = "girl", value = "女生详细实体girl", required = true, dataType = "Girl")
     })
     @PutMapping(value = "/girls/{id}")
-    public Girl girlUpdate(Girl girl){
+    public int girlUpdate(Girl girl){
         return girlRepository.save(girl);
     }
 

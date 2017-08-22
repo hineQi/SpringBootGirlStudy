@@ -31,7 +31,7 @@
         WHERE age = #{age}
     </select>
 
-    <insert id="save" parameterType="com.hine.entity.Girl" >
+    <insert id="save" parameterType="com.hine.entity.Girl">
         INSERT INTO
         girl
         (age,cup_size)
