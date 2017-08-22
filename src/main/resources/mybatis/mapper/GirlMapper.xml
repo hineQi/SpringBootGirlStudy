@@ -24,6 +24,13 @@
         WHERE id = #{id}
     </select>
 
+    <select id="findByAge" parameterType="Integer" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM girl
+        WHERE age = #{age}
+    </select>
+
     <insert id="save" parameterType="com.hine.entity.Girl" >
         INSERT INTO
         girl
