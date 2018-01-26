@@ -1,7 +1,7 @@
 package com.hine.service;
 
+import com.hine.repository.GirlRepository;
 import com.hine.entity.Girl;
-import com.hine.mapper.GirlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class GirlService {
 
     @Autowired
-    private GirlMapper girlRepository;
+    private GirlRepository girlRepository;
 
     /**
      * 有事物的添加多条数据

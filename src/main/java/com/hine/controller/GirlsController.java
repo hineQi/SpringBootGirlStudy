@@ -1,11 +1,14 @@
 package com.hine.controller;
 
+import com.hine.repository.GirlRepository;
 import com.hine.entity.Girl;
-import com.hine.mapper.GirlMapper;
 import com.hine.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -18,11 +21,10 @@ import java.util.List;
 public class GirlsController {
 
     @Autowired
-    private GirlMapper girlRepository;
+    private GirlRepository girlRepository;
 
     @Autowired
     private GirlService girlService;
-
 
     /**
      * 查询所有女生列表
@@ -30,6 +32,7 @@ public class GirlsController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList(){
+        System.out.println("girlList girlList girlList girlList girlList");
         return girlRepository.findAll();
     }
 
@@ -39,7 +42,10 @@ public class GirlsController {
      * @return
      */
     @PostMapping(value = "/girls")
-    public int girlAdd(@RequestBody Girl girl){
+    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+        }
         return girlRepository.save(girl);
     }
 
@@ -49,7 +55,7 @@ public class GirlsController {
      * @return
      */
     @GetMapping(value = "/girls/{id}")
-    public Girl girlFindOne(@PathVariable("id") Long id){
+    public Girl girlFindOne(@PathVariable("id") Integer id){
         return girlRepository.findOne(id);
     }
 
@@ -59,7 +65,7 @@ public class GirlsController {
      * @return
      */
     @PutMapping(value = "/girls/{id}")
-    public int girlUpdate(Girl girl){
+    public Girl girlUpdate(Girl girl){
         return girlRepository.save(girl);
     }
 
@@ -68,7 +74,7 @@ public class GirlsController {
      * @param id
      */
     @DeleteMapping(value = "/girls/{id}")
-    public void girlDelete(@PathVariable("id") Long id){
+    public void girlDelete(@PathVariable("id") Integer id){
         girlRepository.delete(id);
     }
 
